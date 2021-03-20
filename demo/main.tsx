@@ -1,9 +1,6 @@
-📦 **Installation**
-``` javascript
-npm install component-portal
-```
-🔨 **Usage**
-``` javascript
+import * as React from 'react';
+import Portal from "../src/Portal";
+
 class Test extends React.PureComponent {
 
     state = {
@@ -15,12 +12,19 @@ class Test extends React.PureComponent {
             <div>
                 <Portal getContainer={()=>this.ref.current}>123</Portal>
                 <div ref={this.ref}>456</div>
-                <div id='container'>789</div>
-                <Portal getContainer={'#container'}>123</Portal>
             </div>
         );
     }
 }
 
-
-```
+/***
+ *
+ * @constructor
+ */
+export default function App(): React.ReactElement<HTMLElement> {
+    return (
+        <div className="app">
+          <Test/>
+        </div>
+    )
+}
